@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อนุชาเสื้อบอล - Official Manchester United Kits Store</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background: #f1f5f9;
+            color: #0f172a;
+        }
+
+        /* =========================
+           TOP ANNOUNCEMENT BAR
+        ========================= */
+        .top-bar {
+            background: #000;
+            color: #fbe122;
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* =========================
+           NAVBAR / MENU
+        ========================= */
+        .menu {
+            width: 100%;
+            min-height: 70px;
+            background: #da291c; /* Man Utd Red */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: #fbe122;
+        }
+
+        .menu-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .menu-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .menu-links a:hover {
+            color: #fbe122;
+        }
+
+        /* =========================
+           HERO BANNER (หน้าแรก)
+        ========================= */
+        .hero {
+            background: linear-gradient(135deg, #111827 0%, #da291c 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: inset 0 -10px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin: 0 0 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: #fbe122;
+            color: #1e293b;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(251, 225, 34, 0.4);
+            transition: 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: scale(1.05);
+            background: white;
+        }
+
+        /* =========================
+           FILTER BUTTONS
+        ========================= */
+        .filter-section {
+            text-align: center;
+            margin: 30px 0 10px;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid #cbd5e1;
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-weight: 600;
+            color: #475569;
+            cursor: pointer;
+            margin: 5px;
+            transition: 0.2s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #da291c;
+            color: white;
+            border-color: #da291c;
+        }
+
+        /* =========================
+           CART FLOATING BUTTON
+        ========================= */
+        .cart-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #da291c;
+            color: white;
+            border: 3px solid white;
+            border-radius: 50px;
+            padding: 14px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(218,41,28,0.4);
+            z-index: 998;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-btn:hover {
+            transform: translateY(-5px);
+            background: #b71c1c;
+        }
+
+        #cartCount {
+            background: #fbe122;
+            color: #0f172a;
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        /* =========================
+           PRODUCTS GRID
+        ========================= */
+        .products-title {
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        .products-title h2 {
+            font-size: 30px;
+            color: #0f172a;
+            margin-bottom: 5px;
+        }
+
+        .products {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto 80px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.12);
+        }
+
+        .tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #da291c;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 240px;
+            border-radius: 15px;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            transition: 0.3s;
+        }
+
+        .product:hover .product-image img {
+            transform: scale(1.08);
+        }
+
+        .product h3 {
+            font-size: 17px;
+            margin: 10px 0 5px;
+            color: #1e293b;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: 800;
+            color: #da291c;
+            margin: 8px 0;
+        }
+
+        .size-selector {
+            margin: 10px 0 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .size-selector label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        .size-selector select {
+            padding: 5px 10px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            font-weight: 600;
+        }
+
+        .buy-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            background: #0f172a;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .buy-btn:hover {
+            background: #da291c;
+        }
+
+        /* =========================
+           MODALS
+        ========================= */
+        .modal {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-box {
+            background: white;
+            border-radius: 24px;
+            padding: 30px;
+            width: 550px;
+            max-width: 92%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #94a3b8;
+            transition: 0.2s;
+        }
+
+        .close-btn:hover { color: #0f172a; }
+
+        .modal-box h2 {
+            margin-top: 0;
+            color: #da291c;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 12px;
+            text-align: center;
+        }
+
+        /* CART MODAL SPECIFIC */
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .cart-item img { width: 60px; height: 60px; object-fit: contain; }
+        .cart-item-details { flex: 1; }
+        .cart-item-details h4 { margin: 0 0 5px; font-size: 14px; }
+        .cart-item-details p { margin: 0; color: #da291c; font-weight: bold; font-size: 14px; }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .quantity-control button {
+            width: 24px;
+            height: 24px;
+            border: none;
+            background: #cbd5e1;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 14px;
+            background: #da291c;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        /* FORM ELEMENTS */
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) { .products { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) {
+            .products { grid-template-columns: 1fr; }
+            .menu { padding: 0 15px; }
+            .hero h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="top-bar">⚡ โปรโมชันพิเศษ! สั่งซื้อเสื้อบอลแมนยูวันนี้ ส่งฟรีทั่วประเทศ | รับประกันผ้าพรีเมียมเกรดแฟนบอล/นักเตะ ⚡</div>
+
+<!-- MENU / NAVIGATION -->
+<div class="menu">
+    <div class="logo">👹 อนุชา<span>เสื้อบอล</span></div>
+    <div class="menu-links">
+        <a href="#home">หน้าแรก</a>
+        <a href="#products">สินค้าทั้งหมด</a>
+        <a href="javascript:void(0)" onclick="openModal('aboutModal')">เกี่ยวกับร้าน</a>
+        <a href="javascript:void(0)" onclick="openModal('contactModal')">ติดต่อเรา</a>
+        <a href="javascript:void(0)" onclick="openModal('historyModal')">ประวัติสั่งซื้อ</a>
+    </div>
+</div>
+
+<!-- HERO BANNER (หน้าแรก) -->
+<div class="hero" id="home">
+    <h1>Manchester United Kits Collection</h1>
+    <p>ศูนย์รวมเสื้อฟุตบอลสโมสรแมนเชสเตอร์ ยูไนเต็ด ครบทุกยุคสมัย ตั้งแต่ยุคทริปเปิลแชมป์ 1999 จนถึงฤดูกาลล่าสุด 2024/25 คลาสสิก ทรงคุณค่า สมจริงที่สุด</p>
+    <a href="#products" class="hero-btn">🛒 เลือกชมเสื้อบอลเลย</a>
+</div>
+
+<!-- FILTER BUTTONS -->
+<div class="filter-section" id="products">
+    <button class="filter-btn active" onclick="filterCategory('all', this)">สินค้าทั้งหมด</button>
+    <button class="filter-btn" onclick="filterCategory('modern', this)">ยุคปัจจุบัน (2020-2025)</button>
+    <button class="filter-btn" onclick="filterCategory('retro', this)">ยุคเรโทร (Retro Classic)</button>
+    <button class="filter-btn" onclick="filterCategory('away', this)">ชุดเยือน / พิเศษ</button>
+</div>
+
+<!-- PRODUCTS SECTION -->
+<div class="products-title">
+    <h2>⚽ รายการเสื้อบอลแมนยู</h2>
+</div>
+
+<div class="products">
+
+    <!-- 1. Snapdragon 2024/25 -->
+    <div class="product" data-category="modern" data-name="Man Utd 2024/25 Home (Snapdragon)" data-price="790" data-description="เสื้อเหย้าฤดูกาลล่าสุด สปอนเซอร์ Snapdragon แถบข้างสีส้มเพลิง ผ้า HEAT.RDY บางเบา">
+        <span class="tag">ใหม่ล่าสุด</span>
+        <div class="product-image" onclick="showDetail(this)">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='100%' height='100%' fill='%23f8fafc'/><path d='M70,70 L110,35 L190,35 L230,70 L200,95 L200,260 L100,260 L100,95 Z' fill='%23da291c'/><path d='M70,70 L100,95 L100,260 L85,260 Z' fill='%23ff5722'/><path d='M230,70 L200,95 L200,260 L215,260 Z' fill='%23ff5722'/><line x1='110' y1='35' x2='75' y2='65' stroke='%23ffffff' stroke-width='4'/><line x1='190' y1='35' x2='225' y2='65' stroke='%23ffffff' stroke-width='4'/><circle cx='125' cy='90' r='14' fill='%23fbe122'/><text x='150' y='165' font-family='Arial' font-size='18' font-weight='900' fill='%23ffffff' text-anchor='middle'>Snapdragon</text></svg>">
+        </div>
+        <h3>🔴 Snapdragon (2024/25)</h3>
+        <div class="price">790 ฿</div>
+        <div class="size-selector">
+            <label>ไซส์:</label>
+            <select class="item-size"><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>2XL</option></select>
+        </div>
+        <button class="buy-btn" onclick="addToCart(this)">🛒 ใส่ตะกร้า</button>
+    </div>
+
+    <!-- 2. TeamViewer 2021-2024 -->
+    <div class="product" data-category="modern" data-name="Man Utd 2021-2024 Home (TeamViewer)" data-price="690" data-description="เสื้อเหย้ายุค TeamViewer ทรงย้อนยุค 80s งานปักโลโก้ขอบขาวสวยงาม">
+        <span class="tag">ฮิตสุด</span>
+        <div class="product-image" onclick="showDetail(this)">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='100%' height='100%' fill='%23f8fafc'/><path d='M70,70 L110,35 L190,35 L230,70 L200,95 L200,260 L100,260 L100,95 Z' fill='%23d32f2f'/><polygon points='110,35 150,65 190,35' fill='%23ffffff'/><circle cx='125' cy='90' r='14' fill='%23fbe122'/><text x='150' y='165' font-family='Arial' font-size='17' font-weight='bold' fill='%23ffffff' text-anchor='middle'>TeamViewer</text></svg>">
+        </div>
+        <h3>🖤 TeamViewer (2021–2024)</h3>
+        <div class="price">690 ฿</div>
+        <div class="size-selector">
+            <label>ไซส์:</label>
+            <select class="item-size"><option>S</option><option selected>M</option><option>L</option><option>XL</option></select>
+        </div>
+        <button class="buy-btn" onclick="addToCart(this)">🛒 ใส่ตะกร้า</button>
+    </div>
+
+    <!-- 3. Chevrolet 2014-2021 -->
+    <div class="product" data-category="retro" data-name="Man Utd 2014-2021 Home (Chevrolet)" data-price="650" data-description="สปอนเซอร์โลโก้เชฟโรเลตทองคาดอกอันเป็นเอกลักษณ์ ผ้าทอนุ่มใส่สบาย">
+        <span class="tag">แนะนำ</span>
+        <div class="product-image" onclick="showDetail(this)">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='100%' height='100%' fill='%23f8fafc'/><path d='M70,70 L110,35 L190,35 L230,70 L200,95 L200,260 L100,260 L100,95 Z' fill='%23c62828'/><circle cx='125' cy='90' r='14' fill='%23fbe122'/><path d='M115,145 L185,145 L185,165 L115,165 Z' fill='%23fbc02d'/><path d='M135,135 L165,135 L165,175 L135,175 Z' fill='%23fbc02d'/><text x='150' y='195' font-family='Arial' font-size='11' font-weight='bold' fill='%23ffffff' text-anchor='middle'>CHEVROLET</text></svg>">
+        </div>
+        <h3>🟡 Chevrolet (2014–2021)</h3>
+        <div class="price">650 ฿</div>
+        <div class="size-selector">
+            <label>ไซส์:</label>
+            <select class="item-size"><option>S</option><option selected>M</option><option>L</option><option>XL</option></select>
+        </div>
+        <button class="buy-btn" onclick="addToCart(this)">🛒 ใส่ตะกร้า</button>
+    </div>
+
+    <!-- 4. Aon 2010-2014 -->
+    <div class="product" data-category="retro" data-name="Man Utd 2010-2014 Home (Aon)" data-price="750" data-description="ชุดแชมป์พรีเมียร์ลีกสมัยที่ 19 และ 20 ยุคอำลาป๋าเซอร์อเล็กซ์ เฟอร์กูสัน">
+        <span class="tag">คลาสสิก</span>
+        <div class="product-image" onclick="showDetail(this)">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='100%' height='100%' fill='%23f8fafc'/><path d='M70,70 L110,35 L190,35 L230,70 L200,95 L200,260 L100,260 L100,95 Z' fill='%23b71c1c'/><polygon points='110,35 150,70 190,35' fill='%23ffffff'/><circle cx='125' cy='95' r='14' fill='%23fbe122'/><text x='150' y='165' font-family='Arial' font-size='32' font-weight='bold' fill='%23ffffff' text-anchor='middle'>Aon</text></svg>">
+        </div>
+        <h3>🔴 Aon Premier League Champions</h3>
+        <div class="price">750 ฿</div>
+        <div class="size-selector">
+            <label>ไซส์:</label>
+            <select class="item-size"><option>S</option><option selected>M</option><option>L</option><option>XL</option></select>
+        </div>
+        <button class="buy-btn" onclick="addToCart(this)">🛒 ใส่ตะกร้า</button>
+    </div>
+
+    <!-- 5. AIG 2006-2010 -->
+    <div class="product" data-category="retro" data-name="Man Utd 2006-2010 Home (AIG)" data-price="890" data-description="ชุดแชมป์ UEFA Champions League 2008 ที่มอสโก ยุคคริสเตียโน โรนัลโด้ เบอร์ 7">
+        <span class="tag">ขายดีที่สุด</span>
+        <div class="product-image" onclick="showDetail(this)">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='100%' height='100%' fill='%23f8fafc'/><path d='M70,70 L110,35 L190,35 L230,70 L200,95 L200,260 L100,260 L100,95 Z' fill='%23d32f2f'/><line x1='100' y1='95' x2='100' y2='260' stroke='%23ffffff' stroke-width='4'/><line x1='200' y1='95' x2='200' y2='260' stroke='%23ffffff' stroke-width='4'/><circle cx='125' cy='90' r='14' fill='%23fbe122'/><text x='150' y='165' font-family='Arial' font-size='30' font-weight='bold' fill='%23ffffff' text-anchor='middle'>AIG</text></svg>">
+        </div>
+        <h3>⚪ AIG UCL Champions 2008</h3>
+        <div class="price">890 ฿</div>
+        <div class="size-selector">
+            <label>ไซส์:</label>
+            <select class="item-size"><option>S</option><option selected>M</option><option>L</option><option>XL</option></select>
+        </div>
+        <button class="buy-btn" onclick="addToCart(this)">🛒 ใส่ตะกร้า</button>
+    </div>
+
+    <!-- 6. Sharp Treble 1999 -->
+    <div class="product" data-category="retro" data-name="Man Utd 1999 Treble (Sharp)" data-price="990" data-description="เสื้อย้อนยุคทริปเปิลแชมป์ 1999 ในตำนาน คอคอปกพร้อมซิป/กระดุม คลาสสิกตลอดกาล">
+        <span class="tag">ตำนาน</span>
+        <div class="product-image" onclick="showDetail(this)">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='100%' height='100%' fill='%23f8fafc'/><path d='M70,70 L110,35 L190,35 L230,70 L200,95 L200,260 L100,260 L100,95 Z' fill='%23c62828'/><polygon points='110,35 150,65 190,35' fill='%23ffffff'/><rect x='135' y='55' width='30' height='20' fill='%23ffffff'/><circle cx='125' cy='90' r='14' fill='%23fbe122'/><text x='150' y='165' font-family='Arial' font-size='24' font-weight='bold' fill='%23ffffff' text-anchor='middle'>SHARP</text></svg>">
+        </div>
+        <h3>🏆 Sharp Classic Treble 1999</h3>
+        <div class="price">990 ฿</div>
+        <div class="size-selector">
+            <label>ไซส์:</label>
+            <select class="item-size"><option>S</option><option selected>M</option><option>L</option><option>XL</option></select>
+        </div>
+        <button class="buy-btn" onclick="addToCart(this)">🛒 ใส่ตะกร้า</button>
+    </div>
+
+    <!-- 7. Vodafone 2002-2006 (เพิ่มใหม่) -->
+    <div class="product" data-category="retro" data-name="Man Utd 2002-2006 (Vodafone)" data-price="850" data-description="เสื้อยุคเบ็คแฮม และ รูนีย์ ดาวรุ่งพุ่งแรง สปอนเซอร์ Vodafone วงกลมแดงสุดเท่">
+        <span class="tag">หายาก</span>
+        <div class="product-image" onclick="showDetail(this)">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='100%' height='100%' fill='%23f8fafc'/><path d='M70,70 L110,35 L190,35 L230,70 L200,95 L200,260 L100,260 L100,95 Z' fill='%23d32f2f'/><circle cx='125' cy='90' r='14' fill='%23fbe122'/><circle cx='115' cy='160' r='12' fill='%23ffffff'/><text x='160' y='166' font-family='Arial' font-size='20' font-weight='bold' fill='%23ffffff' text-anchor='middle'>vodafone</text></svg>">
+        </div>
+        <h3>🔴 Vodafone Era (2002–2006)</h3>
+        <div class="price">850 ฿</div>
+        <div class="size-selector">
+            <label>ไซส์:</label>
+            <select class="item-size"><option>S</option><option selected>M</option><option>L</option><option>XL</option></select>
+        </div>
+        <button class="buy-btn" onclick="addToCart(this)">🛒 ใส่ตะกร้า</button>
+    </div>
+
+    <!-- 8. Retro Away Snowflake 1990-1992 (เพิ่มใหม่) -->
+    <div class="product" data-category="away" data-name="Man Utd Away 1990-1992 (Snowflake)" data-price="950" data-description="เสื้อเยือน ลายเกล็ดหิมะสีน้ำเงินฟ้าในตำนาน เรโทรสายวินเทจห้ามพลาด">
+        <span class="tag">Retro Away</span>
+        <div class="product-image" onclick="showDetail(this)">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='100%' height='100%' fill='%23f8fafc'/><path d='M70,70 L110,35 L190,35 L230,70 L200,95 L200,260 L100,260 L100,95 Z' fill='%230288d1'/><circle cx='125' cy='90' r='14' fill='%23fbe122'/><text x='150' y='165' font-family='Arial' font-size='22' font-weight='bold' fill='%23ffffff' text-anchor='middle'>SHARP</text></svg>">
+        </div>
+        <h3>❄️ Away Snowflake (1990–1992)</h3>
+        <div class="price">950 ฿</div>
+        <div class="size-selector">
+            <label>ไซส์:</label>
+            <select class="item-size"><option>S</option><option selected>M</option><option>L</option><option>XL</option></select>
+        </div>
+        <button class="buy-btn" onclick="addToCart(this)">🛒 ใส่ตะกร้า</button>
+    </div>
+
+</div>
+
+<!-- FLOATING CART BUTTON -->
+<button class="cart-btn" onclick="openModal('cartModal')">
+    🛒 ตะกร้าสินค้า <span id="cartCount">0</span>
+</button>
+
+<!-- CART MODAL -->
+<div id="cartModal" class="modal">
+    <div class="modal-box">
+        <span class="close-btn" onclick="closeModal('cartModal')">&times;</span>
+        <h2>🛒 ตะกร้าสินค้าของคุณ</h2>
+        <div id="cartItemsList"></div>
+        <div style="border-top:2px dashed #e2e8f0; margin-top:15px; padding-top:15px; text-align:right;">
+            <h3>ยอดรวมทั้งหมด: <span id="cartTotal" style="color:#da291c;">0</span> บาท</h3>
+            <button class="checkout-btn" onclick="goToPayment()">💳 ดำเนินการชำระเงิน</button>
+        </div>
+    </div>
+</div>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div id="detailModal" class="modal">
+    <div class="modal-box" style="text-align:center;">
+        <span class="close-btn" onclick="closeModal('detailModal')">&times;</span>
+        <div id="detailImgBox" style="height:200px; background:#f8fafc; border-radius:15px; padding:10px; margin-bottom:15px;"></div>
+        <h2 id="detailTitle" style="margin-bottom:5px;"></h2>
+        <p id="detailDesc" style="color:#64748b; font-size:14px; line-height:1.5;"></p>
+        <div id="detailPriceVal" style="font-size:24px; font-weight:bold; color:#da291c; margin:15px 0;"></div>
+    </div>
+</div>
+
+<!-- PAYMENT MODAL -->
+<div id="paymentModal" class="modal">
+    <div class="modal-box">
+        <span class="close-btn" onclick="closeModal('paymentModal')">&times;</span>
+        <h2>💳 ชำระเงินสั่งซื้อ</h2>
+        <p style="text-align:center; font-size:18px; font-weight:bold;">ยอดชำระ: <span id="paymentTotal" style="color:#da291c;">0</span> บาท</p>
+        <div class="form-group">
+            <label>ชื่อ-นามสกุล ผู้สั่งซื้อ</label>
+            <input type="text" id="custName" placeholder="กรอกชื่อ-นามสกุล">
+        </div>
+        <div class="form-group">
+            <label>เบอร์โทรศัพท์ / ที่อยู่จัดส่ง</label>
+            <textarea id="custAddress" rows="3" placeholder="กรอกที่อยู่จัดส่งสินค้าอย่างละเอียด"></textarea>
+        </div>
+        <button class="checkout-btn" onclick="processOrder()">✅ ยืนยันการชำระเงิน</button>
+    </div>
+</div>
+
+<!-- HISTORY MODAL -->
+<div id="historyModal" class="modal">
+    <div class="modal-box">
+        <span class="close-btn" onclick="closeModal('historyModal')">&times;</span>
+        <h2>📜 ประวัติการสั่งซื้อ</h2>
+        <div id="historyContent"></div>
+    </div>
+</div>
+
+<!-- ABOUT MODAL -->
+<div id="aboutModal" class="modal">
+    <div class="modal-box">
+        <span class="close-btn" onclick="closeModal('aboutModal')">&times;</span>
+        <h2>🏠 เกี่ยวกับร้านอนุชาเสื้อบอล</h2>
+        <p><b>ร้านอนุชาเสื้อบอล (Anucha Football Shirts)</b> คือศูนย์รวมเสื้อบอลสโมสรแมนเชสเตอร์ ยูไนเต็ด คอลเลกชันระดับคุณภาพ เราคัดสรรเสื้อบอลเกรดพรีเมียม ตัดเย็บเนี๊ยบ เนื้อผ้าใส่สบาย ระบายอากาศได้ดี พร้อมงานสกรีนเบอร์และชื่อระดับมาตรฐานสากล</p>
+    </div>
+</div>
+
+<!-- CONTACT MODAL -->
+<div id="contactModal" class="modal">
+    <div class="modal-box">
+        <span class="close-btn" onclick="closeModal('contactModal')">&times;</span>
+        <h2>✉️ ติดต่อเรา</h2>
+        <form onsubmit="alert('ส่งข้อความเรียบร้อยแล้ว!'); closeModal('contactModal'); return false;">
+            <div class="form-group"><label>ชื่อผู้ติดต่อ</label><input type="text" required></div>
+            <div class="form-group"><label>อีเมล / เบอร์โทร</label><input type="text" required></div>
+            <div class="form-group"><label>ข้อความ</label><textarea rows="3" required></textarea></div>
+            <button class="checkout-btn" type="submit">ส่งข้อความ</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    let cart = [];
+    let history = JSON.parse(localStorage.getItem('mufc_orders')) || [];
+
+    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+    function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+
+    function addToCart(btn) {
+        let card = btn.closest('.product');
+        let name = card.dataset.name;
+        let price = parseInt(card.dataset.price);
+        let img = card.querySelector('img').src;
+        let size = card.querySelector('.item-size').value;
+
+        let exist = cart.find(i => i.name === name && i.size === size);
+        if(exist) {
+            exist.qty++;
+        } else {
+            cart.push({ name, price, img, size, qty: 1 });
+        }
+        updateCartUI();
+        alert(`เพิ่ม ${name} (ไซส์ ${size}) ลงในตะกร้าแล้ว! ⚽`);
+    }
+
+    function updateCartUI() {
+        let list = document.getElementById('cartItemsList');
+        let count = 0;
+        let total = 0;
+        list.innerHTML = '';
+
+        if(cart.length === 0) {
+            list.innerHTML = '<p style="text-align:center; color:#94a3b8;">ไม่มีสินค้าในตะกร้า</p>';
+        } else {
+            cart.forEach((item, index) => {
+                count += item.qty;
+                total += item.price * item.qty;
+                list.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.img}">
+                        <div class="cart-item-details">
+                            <h4>${item.name}</h4>
+                            <p>ไซส์: ${item.size} | ${item.price} ฿</p>
+                            <div class="quantity-control">
+                                <button onclick="changeQty(${index}, -1)">-</button>
+                                <span>${item.qty}</span>
+                                <button onclick="changeQty(${index}, 1)">+</button>
+                            </div>
+                        </div>
+                        <button style="background:none; border:none; color:#ef4444; cursor:pointer; font-size:18px;" onclick="removeItem(${index})">🗑️</button>
+                    </div>
+                `;
+            });
+        }
+
+        document.getElementById('cartCount').textContent = count;
+        document.getElementById('cartTotal').textContent = total;
+    }
+
+    function changeQty(index, delta) {
+        cart[index].qty += delta;
+        if(cart[index].qty <= 0) cart.splice(index, 1);
+        updateCartUI();
+    }
+
+    function removeItem(index) {
+        cart.splice(index, 1);
+        updateCartUI();
+    }
+
+    function filterCategory(cat, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        document.querySelectorAll('.product').forEach(p => {
+            if(cat === 'all' || p.dataset.category === cat) {
+                p.style.display = 'flex';
+            } else {
+                p.style.display = 'none';
+            }
+        });
+    }
+
+    function showDetail(imgDiv) {
+        let card = imgDiv.closest('.product');
+        document.getElementById('detailImgBox').innerHTML = `<img src="${card.querySelector('img').src}" style="height:100%;">`;
+        document.getElementById('detailTitle').textContent = card.dataset.name;
+        document.getElementById('detailDesc').textContent = card.dataset.description;
+        document.getElementById('detailPriceVal').textContent = card.dataset.price + ' บาท';
+        openModal('detailModal');
+    }
+
+    function goToPayment() {
+        if(cart.length === 0) { alert('กรุณาเลือกสินค้าก่อนชำระเงิน'); return; }
+        let total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+        document.getElementById('paymentTotal').textContent = total;
+        closeModal('cartModal');
+        openModal('paymentModal');
+    }
+
+    function processOrder() {
+        let name = document.getElementById('custName').value;
+        let address = document.getElementById('custAddress').value;
+        if(!name || !address) { alert('กรุณากรอกข้อมูลให้ครบถ้วน'); return; }
+
+        let total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+        let order = {
+            id: 'MU-' + Math.floor(100000 + Math.random() * 900000),
+            date: new Date().toLocaleDateString('th-TH'),
+            items: [...cart],
+            total: total
+        };
+
+        history.unshift(order);
+        localStorage.setItem('mufc_orders', JSON.stringify(history));
+
+        alert(`✅ ชำระเงินสำเร็จ! รหัสคำสั่งซื้อ: ${order.id}`);
+        cart = [];
+        updateCartUI();
+        closeModal('paymentModal');
+        renderHistory();
+    }
+
+    function renderHistory() {
+        let box = document.getElementById('historyContent');
+        box.innerHTML = '';
+        if(history.length === 0) {
+            box.innerHTML = '<p style="text-align:center; color:#94a3b8;">ยังไม่มีประวัติสั่งซื้อ</p>';
+            return;
+        }
+        history.forEach(o => {
+            let itemsHtml = o.items.map(i => `<div>- ${i.name} (ไซส์ ${i.size}) x ${i.qty}</div>`).join('');
+            box.innerHTML += `
+                <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:15px; border-radius:12px; margin-bottom:10px;">
+                    <div style="font-weight:bold; color:#da291c;">เลขที่: ${o.id} <span style="font-size:12px; color:#64748b;">(${o.date})</span></div>
+                    ${itemsHtml}
+                    <div style="font-weight:bold; margin-top:5px;">ราคารวม: ${o.total} บาท</div>
+                </div>
+            `;
+        });
+    }
+
+    renderHistory();
+</script>
+
+</body>
+</html>
